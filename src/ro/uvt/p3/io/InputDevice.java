@@ -7,6 +7,7 @@ import ro.uvt.p3.Mango;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 
 public class InputDevice {
@@ -23,15 +24,11 @@ public class InputDevice {
 
 
     public String scanNextLine() throws IOException {
-        StringBuilder sb = new StringBuilder();
+        Scanner scanner = new Scanner(System.in);
+        String input = scanner.nextLine(); 
+        scanner.close();
 
-        int n = inputStream.read();
-        while (n != 1 && n != '\n') {
-            sb.append((char) n);
-            n = inputStream.read();
-        }
-
-        return sb.toString();
+        return input;
     }
 
     public ArrayList<Fruit> readFruit(int number) {
